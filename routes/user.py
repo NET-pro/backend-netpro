@@ -8,11 +8,6 @@ db_connection = get_db_connection()
 user_bp = Blueprint('user', __name__)
 
 
-@user_bp.route('/getuser', methods=['GET'])
-def get_user():
-    return 'Hello, World!'
-
-
 @user_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -49,6 +44,7 @@ def login():
         else:
             return jsonify({'error': 'Invalid username or password'}), 401
     except Exception as e:
+        print(e)
         return jsonify({'error': str(e)}), 500
 
 

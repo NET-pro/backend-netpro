@@ -8,7 +8,7 @@ def createTables():
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 uuid VARCHAR(255) PRIMARY KEY,
-                username VARCHAR(255),
+                username VARCHAR(255) UNIQUE,
                 email VARCHAR(255),
                 password VARCHAR(255),
                 adminstatus boolean DEFAULT FALSE
@@ -50,7 +50,7 @@ def createTables():
                 uuid VARCHAR(255),
                 quizId VARCHAR(255),
                 quizEndtime TIMESTAMP,
-                timetaken INT,
+                timetaken FLOAT,
                 correctOptions INT,
                 mcqaccuracy FLOAT,
                 timeaccuracy FLOAT,
